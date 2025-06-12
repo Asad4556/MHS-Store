@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Invoice - MHS Store</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+    .invoice {
+      max-width: 700px;
+      margin: auto;
+      padding: 2rem;
+      border: 1px solid #ccc;
+      background: white;
+    }
+    .invoice h1 {
+      text-align: center;
+      font-size: 28px;
+    }
+    .details {
+      margin: 2rem 0;
+    }
+    .stamp {
+      text-align: right;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="invoice">
+    <h1>🧾 M.Hanif & Sons - Invoice</h1>
+    <div class="details">
+      <p><strong>Customer:</strong> _________</p>
+      <p><strong>Mobile:</strong> _________</p>
+      <p><strong>Method:</strong> EasyPaisa / JazzCash</p>
+      <p><strong>Order Date:</strong> <span id="date"></span></p>
+    </div>
+    <p><strong>Thank you for shopping with us!</strong></p>
+    <div class="stamp">
+      <p>Authorized By:</p>
+      <img src="stamp.png" width="120" alt="Stamp" />
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("date").innerText = new Date().toLocaleString();
+  </script>
+</body>
+</html>
