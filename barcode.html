@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MHS Barcode & QR Generator</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .barcode-area, .qr-area {
+      margin: 2rem;
+      padding: 1rem;
+      background: white;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header class="top-header">
+    <div class="logo">📦 MHS Barcode + QR Code</div>
+    <div class="contact">Auto Code Generator</div>
+  </header>
+
+  <main class="store-content">
+    <form id="codeForm">
+      <label>Enter Product or ID Code:</label>
+      <input type="text" id="codeInput" required />
+      <button type="submit">Generate</button>
+    </form>
+
+    <div class="barcode-area">
+      <h3>🔳 Barcode</h3>
+      <svg id="barcode"></svg>
+    </div>
+
+    <div class="qr-area">
+      <h3>🔲 QR Code</h3>
+      <canvas id="qrcode"></canvas>
+    </div>
+  </main>
+
+  <script>
+    const form = document.getElementById("codeForm");
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const value = document.getElementById("codeInput").value;
+
+      JsBarcode("#barcode", value, {
+        format: "CODE128",
+        displayValue: true,
+        fontSize: 18
+      });
+
+      QRCode.toCanvas(document.getElementById("qrcode"), value, function (error) {
+        if (error) console.error(error);
+      });
+    });
+  </script>
+</body>
+</html>
