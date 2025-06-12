@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reception Section - MHS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top-header">
+    <div class="logo">📞 MHS Reception</div>
+    <div class="contact">
+      🕘 Office Hours: 9am - 5pm | ☎️ 03398067880
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <a href="super_admin_dashboard.html">Dashboard</a>
+    <a href="form_sections.html">All Sections</a>
+    <a href="track_order.html">Order Tracking</a>
+  </nav>
+
+  <main class="form-container">
+    <h2>Visitor Entry Form</h2>
+    <form id="visitor-form">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" required />
+
+      <label for="cnic">CNIC:</label>
+      <input type="text" id="cnic" placeholder="xxxxx-xxxxxxx-x" required />
+
+      <label for="phone">Phone Number:</label>
+      <input type="text" id="phone" required />
+
+      <label for="purpose">Purpose of Visit:</label>
+      <input type="text" id="purpose" required />
+
+      <label for="date">Date:</label>
+      <input type="date" id="date" required />
+
+      <button type="submit">Submit Entry</button>
+    </form>
+  </main>
+
+  <script>
+    document.getElementById("visitor-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Vis
