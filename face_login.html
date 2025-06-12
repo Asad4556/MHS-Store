@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Face Login - MHS Store</title>
+  <style>
+    body { background: #000; color: #fff; text-align: center; font-family: Arial; padding-top: 30px; }
+    video { border: 4px solid #0ff; border-radius: 10px; margin-top: 20px; }
+    button { padding: 10px 20px; font-size: 18px; margin-top: 20px; background: #00ff88; color: #000; border: none; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h1>🔒 Face Login (Demo)</h1>
+  <p>Allow webcam access to simulate face login</p>
+  
+  <video id="video" width="320" height="240" autoplay></video><br>
+  <button onclick="simulateLogin()">Simulate Face Match ✅</button>
+
+  <h2 id="status" style="margin-top:20px;"></h2>
+
+  <script>
+    const video = document.getElementById('video');
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then((stream) => {
+        video.srcObject = stream;
+      })
+      .catch((err) => {
+        document.getElementById('status').innerText = "❌ Webcam access denied!";
+      });
+
+    function simulateLogin() {
+      document.getElementById('status').innerHTML = "✅ Face Matched. Login Successful!";
+      setTimeout(() => {
+        window.location.href = "super_admin_dashboard.html"; // Redirect after face match
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
