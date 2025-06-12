@@ -1,0 +1,13 @@
+function addSection(event) {
+  event.preventDefault();
+  const name = document.getElementById("sectionName").value;
+  const div = document.createElement("div");
+  div.className = "section";
+  div.innerHTML = `
+    <h4>${name} Section</h4>
+    <p>📝 Auto-generated form + Export + Report</p>
+    <button onclick="openSection('${name}')">Enter</button>
+  `;
+  document.getElementById("sectionsDisplay").appendChild(div);
+  document.getElementById("sectionName").value = "";
+}
