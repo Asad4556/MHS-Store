@@ -1,11 +1,42 @@
-<div class="add-section-form">
-  <h3>➕ Create New Section</h3>
+<!-- Add this inside the body of super_admin_dashboard.html -->
+<div class="section-creator" style="margin: 20px; padding: 20px; background: #1f1f1f; color: white; border-radius: 10px;">
+  <h2 style="color: #00ffcc;">➕ Create New Section</h2>
   <form onsubmit="addSection(event)">
-    <input type="text" id="sectionName" placeholder="Enter Section Name (e.g., Warehouse)" required />
-    <button type="submit">Create Section</button>
+    <input type="text" id="sectionName" placeholder="Enter Section Name (e.g., Warehouse)" required
+           style="padding: 10px; width: 250px; margin-right: 10px; border-radius: 5px;" />
+    <button type="submit" style="padding: 10px 20px; background: #00ffcc; border: none; border-radius: 5px;">
+      Create Section
+    </button>
   </form>
 </div>
 
-<div id="sectionsDisplay">
-  <!-- All created sections will appear here -->
-</div>
+<hr style="margin: 30px 0; border-color: #00ffcc;" />
+
+<div id="sectionsDisplay" style="display: flex; flex-wrap: wrap; gap: 20px;"></div>
+
+<script>
+  function addSection(event) {
+    event.preventDefault();
+    const name = document.getElementById("sectionName").value.trim();
+    if (!name) return;
+
+    const sectionBox = document.createElement("div");
+    sectionBox.className = "section-box";
+    sectionBox.style = "background: #333; padding: 20px; border-radius: 10px; color: white; width: 300px;";
+    sectionBox.innerHTML = `
+      <h3 style="color: #00ffcc;">${name} Section</h3>
+      <p>📝 Auto-generated form and export tools included.</p>
+      <button onclick="openSection('${name}')" style="padding: 10px; background: #00ffcc; border: none; border-radius: 5px;">
+        Enter Section
+      </button>
+    `;
+
+    document.getElementById("sectionsDisplay").appendChild(sectionBox);
+    document.getElementById("sectionName").value = "";
+  }
+
+  function openSection(name) {
+    alert("Opening " + name + " section...\n(This will link to a custom page in final version)");
+    // Later: Redirect to dynamically created section page
+  }
+</script>
