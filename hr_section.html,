@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HR Section - MHS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top-header">
+    <div class="logo">👥 HR Section</div>
+    <div class="contact">
+      📞 03398067880 | MHS Human Resource
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <a href="super_admin_dashboard.html">Dashboard</a>
+    <a href="create_section.html">Add Section</a>
+    <a href="letter_generator.html">Letters</a>
+  </nav>
+
+  <main class="form-container">
+    <h2>Employee Registration Form</h2>
+    <form id="hr-form">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" required />
+
+      <label for="cnic">CNIC:</label>
+      <input type="text" id="cnic" required placeholder="XXXXX-XXXXXXX-X" />
+
+      <label for="phone">Phone Number:</label>
+      <input type="text" id="phone" required />
+
+      <label for="position">Position:</label>
+      <input type="text" id="position" required />
+
+      <label for="department">Department:</label>
+      <input type="text" id="department" required />
+
+      <label for="joining">Joining Date:</label>
+      <input type="date" id="joining" required />
+
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+
+  <script>
+    document.getElementById("hr-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Employee added successfully!");
+      this.reset();
+    });
+  </script>
+</body>
+</html>
