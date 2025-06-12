@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Section - MHS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top-header">
+    <div class="logo">🛡️ Admin Section</div>
+    <div class="contact">
+      ✉️ admin@mhsonline.pk | ☎️ 03398067880
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <a href="super_admin_dashboard.html">Dashboard</a>
+    <a href="letter_generator.html">Generate Letter</a>
+    <a href="export_excel_pdf.html">Export Data</a>
+  </nav>
+
+  <main class="form-container">
+    <h2>Generate Official Letter</h2>
+    <form id="admin-form">
+      <label for="empName">Employee Name:</label>
+      <input type="text" id="empName" required />
+
+      <label for="empCnic">CNIC:</label>
+      <input type="text" id="empCnic" required />
+
+      <label for="letterType">Letter Type:</label>
+      <select id="letterType" required>
+        <option value="Experience">Experience Letter</option>
+        <option value="Termination">Termination Letter</option>
+        <option value="NOC">NOC</option>
+      </select>
+
+      <label for="reason">Description / Reason:</label>
+      <textarea id="reason" rows="4" required></textarea>
+
+      <button type="submit">Generate</button>
+    </form>
+  </main>
+
+  <script>
+    document.getElementById("admin-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Letter generated successfully with stamp and watermark!");
+      this.reset();
+    });
+  </script>
+</body>
+</html>
