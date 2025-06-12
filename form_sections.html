@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MHS Section Forms</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .section {
+      background: white;
+      padding: 2rem;
+      margin: 1.5rem;
+      border-radius: 12px;
+    }
+    form input, form select {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="top-header">
+    <div class="logo">📋 MHS Section Forms</div>
+    <div class="contact">Dynamic Data Entry</div>
+  </header>
+
+  <main class="store-content">
+
+    <!-- HR Section -->
+    <div class="section">
+      <h2>👨‍💼 HR Section</h2>
+      <form>
+        <input type="text" placeholder="Full Name" required />
+        <input type="text" placeholder="CNIC" required />
+        <input type="text" placeholder="Phone Number" required />
+        <input type="text" placeholder="Department" required />
+        <input type="text" placeholder="Designation" required />
+        <input type="date" placeholder="Joining Date" required />
+      </form>
+    </div>
+
+    <!-- Finance Section -->
+    <div class="section">
+      <h2>💰 Finance Section</h2>
+      <form>
+        <input type="text" placeholder="Employee CNIC" required />
+        <input type="number" placeholder="Salary Amount" required />
+        <input type="text" placeholder="Account Number" required />
+        <select required>
+          <option disabled selected>Select Payment Method</option>
+          <option>Cash</opti
