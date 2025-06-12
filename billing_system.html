@@ -1,0 +1,44 @@
+<!-- Basic UI Start (for integration inside Dashboard or as separate file) -->
+<div style="padding: 20px; background: #1f1f1f; color: white;">
+  <h2>🧾 Billing & Invoice Generator</h2>
+  <form id="invoiceForm" onsubmit="generateInvoice(event)">
+    <input type="text" placeholder="Customer Name" id="custName" required />
+    <input type="text" placeholder="Product Name" id="prodName" required />
+    <input type="number" placeholder="Quantity" id="qty" required />
+    <input type="number" placeholder="Price" id="price" required />
+    <button type="submit">Add to Bill</button>
+  </form>
+
+  <hr />
+  <div id="invoiceTable"></div>
+  <button onclick="printInvoice()">🖨️ Print Invoice</button>
+</div>
+
+<script>
+  let invoiceItems = [];
+
+  function generateInvoice(e) {
+    e.preventDefault();
+    const name = document.getElementById("prodName").value;
+    const qty = parseInt(document.getElementById("qty").value);
+    const price = parseFloat(document.getElementById("price").value);
+    invoiceItems.push({ name, qty, price });
+    renderInvoice();
+  }
+
+  function renderInvoice() {
+    let html = "<table border='1'><tr><th>Product</th><th>Qty</th><th>Price</th><th>Total</th></tr>";
+    let grandTotal = 0;
+    invoiceItems.forEach(item => {
+      let total = item.qty * item.price;
+      grandTotal += total;
+      html += `<tr><td>${item.name}</td><td>${item.qty}</td><td>${item.price}</td><td>${total}</td></tr>`;
+    });
+    html += `<tr><td colspan="3"><b>Grand Total</b></td><td><b>${grandTotal}</b></td></tr></table>`;
+    document.getElementById("invoiceTable").innerHTML = html;
+  }
+
+  function printInvoice() {
+    window.print(); // Add watermark and QR using CSS in actual version
+  }
+</script>
