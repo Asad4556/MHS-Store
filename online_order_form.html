@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MHS Online Order</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h2 {
+      color: #00ffc8;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #00ffc8;
+      border: none;
+      color: black;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🛍️ Place Your Order</h2>
+
+  <form id="orderForm">
+    <label>Full Name</label>
+    <input type="text" required>
+
+    <label>Phone Number</label>
+    <input type="tel" required placeholder="03XXXXXXXXX">
+
+    <label>Product</label>
+    <select required>
+      <option value="">-- Select Product --</option>
+      <option>LED TV</option>
+      <option>Mobile Phone</option>
+      <option>Grocery Package</option>
+      <option>Clothing Bundle</option>
+    </select>
+
+    <label>Quantity</label>
+    <input type="number" min="1" required>
+
+    <label>Payment Method</label>
+    <select required>
+      <option value="">-- Select Payment --</option>
+      <option>EasyPaisa (03104159005)</option>
+      <option>JazzCash</option>
+      <option>Bank Transfer</option>
+      <option>Cash on Delivery</option>
+    </select>
+
+    <label>Shipping Address</label>
+    <textarea rows="3" required></textarea>
+
+    <button type="submit">📦 Confirm Order</button>
+  </form>
+
+  <script>
+    document.getElementById("orderForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      alert("✅ Your order has been placed! You will be contacted shortly.");
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
