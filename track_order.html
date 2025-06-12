@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Track Your Order - MHS Store</title>
+  <style>
+    body { background: #0a0a0a; color: #fff; font-family: 'Segoe UI'; text-align: center; padding: 50px; }
+    input, button {
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      margin: 10px;
+    }
+    input { width: 300px; }
+    button { background: #00bfff; color: white; }
+    #result { margin-top: 20px; font-size: 18px; color: #0f0; }
+  </style>
+</head>
+<body>
+  <h1>📦 Track Your Order</h1>
+  <p>Enter your Order ID below to check the delivery status.</p>
+
+  <input type="text" id="orderId" placeholder="Enter Order ID">
+  <button onclick="trackOrder()">Track</button>
+
+  <div id="result"></div>
+
+  <script>
+    const dummyOrders = {
+      "ORD123": "Shipped",
+      "ORD456": "Out for Delivery",
+      "ORD789": "Delivered",
+      "ORD000": "Pending Confirmation"
+    };
+
+    function trackOrder() {
+      const orderId = document.getElementById('orderId').value.trim().toUpperCase();
+      const status = dummyOrders[orderId];
+      const result = document.getElementById('result');
+
+      if (status) {
+        result.innerText = `🚚 Status: ${status}`;
+      } else {
+        result.innerText = "❌ Order not found.";
+      }
+    }
+  </script>
+</body>
+</html>
