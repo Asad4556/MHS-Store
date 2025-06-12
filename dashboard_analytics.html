@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MHS Live Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { background-color: #111; color: white; font-family: 'Segoe UI', sans-serif; padding: 30px; text-align: center; }
+    canvas { margin-top: 20px; background: #fff; border-radius: 10px; }
+    h1 { color: #00ffc8; }
+  </style>
+</head>
+<body>
+  <h1>📊 MHS Analytics Dashboard</h1>
+
+  <canvas id="salesChart" width="600" height="300"></canvas>
+  <canvas id="ordersChart" width="600" height="300"></canvas>
+  <canvas id="inventoryChart" width="600" height="300"></canvas>
+
+  <script>
+    const ctx1 = document.getElementById('salesChart').getContext('2d');
+    const salesChart = new Chart(ctx1, {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Weekly Sales',
+          data: [12000, 19000, 3000, 5000, 20000, 24000, 22000],
+          backgroundColor: 'rgba(0, 255, 255, 0.2)',
+          borderColor: '#00ffc8',
+          borderWidth: 2,
+          tension: 0.4
+        }]
+      }
+    });
+
+    const ctx2 = document.getElementById('ordersChart').getContext('2d');
+    const ordersChart = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['Online', 'Walk-in', 'Bulk', 'Subscription'],
+        datasets: [{
+          label: 'Order Types',
+          data: [320, 180, 90, 50],
+          backgroundColor: ['#00bfff', '#00ff88', '#ffaa00', '#ff4081']
+        }]
+      }
+    });
+
+    const ctx3 = document.getElementById('inventoryChart').getContext('2d');
+    const inventoryChart = new Chart(ctx3, {
+      type: 'doughnut',
+      data: {
+        labels: ['Electronics', 'Grocery', 'Apparel', 'Accessories'],
+        datasets: [{
+          label: 'Stock by Category',
+          data: [500, 800, 300, 200],
+          backgroundColor: ['#0099ff', '#00cc99', '#ffcc00', '#ff6699']
+        }]
+      }
+    });
+  </script>
+</body>
+</html>
