@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MHS Export System</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    table, th, td {
+      border: 1px solid gray;
+      border-collapse: collapse;
+      padding: 10px;
+    }
+    .export-btns {
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="top-header">
+    <div class="logo">📤 MHS Export System</div>
+    <div class="contact">Excel & PDF Reports</div>
+  </header>
+
+  <main class="store-content">
+    <h2>📑 Sample Report: HR Records</h2>
+    <div class="export-btns">
+      <button onclick="exportExcel()">📊 Export to Excel</button>
+      <button onclick="exportPDF()">📄 Export to PDF</button>
+    </div>
+
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>CNIC</th>
+          <th>Phone</th>
+          <th>Department</th>
+          <th>Designation</th>
+          <th>Joining Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ali Raza</td>
+          <td>35202-1234567-8</td>
+          <td>03001234567</td>
+          <td>HR</td>
+          <td>Manager</td>
+          <td>2023-02-15</td>
+        </tr>
+        <!-- Add dynamic rows her
