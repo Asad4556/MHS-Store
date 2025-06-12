@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Letter Generator - MHS</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .letter-box {
+      background: #fff;
+      color: #000;
+      padding: 2rem;
+      margin: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+    .print-button {
+      margin: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="top-header">
+    <div class="logo">📝 Letter Generator</div>
+    <div class="contact">🔒 MHS Admin Use Only</div>
+  </header>
+
+  <main class="store-content">
+    <form id="letterForm">
+      <label>Employee Name:</label>
+      <input type="text" id="empName" required />
+
+      <label>CNIC:</label>
+      <input type="text" id="empCnic" required />
+
+      <label>Designation:</label>
+      <input type="text" id="designation" required />
+
+      <label>Choose Letter Type:</label>
+      <select id="letterType" required>
+        <option value="experience">Experience Letter</option>
+        <option value="termination">Termination Letter</option>
+        <option value="noc">NOC</option>
+      </select>
+
+      <button type="submit">Generate</button>
+    </form>
+
+    <div class="letter-box" id="output" style="display:none;"></div>
+    <button onclick="window.print()" class="print-button">🖨️ Print</button>
+  </main>
+
+  <script>
+    document.getElementById('letterForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('empName').value;
+      const cnic = document.getElementById('empCnic').value;
+      const desig = document.getElementById('designation').value;
+      const type = document.getElementById('letterType').value;
+
+      let content = "";
+      const today = new Date().toLocaleDateString();
+
+      if (type === "experience") {
+        content = `<h2>Experience Letter</h2>
+          <p>This is to certify that <strong>${name}</strong> (CNIC: ${cnic}) has worked with MHS as <strong>${desig}</strong>. 
+          They have fulfilled their duties professionally. We wish them success in future.</p>`;
+      } else if (type === "termination") {
+        content = `<h2>Termination Letter</h2>
+          <p>This letter serves as notice that <strong>${name}</strong> (CNIC: ${cnic}) has been officially terminated from the position of <strong>${desig}</strong> effective immediately.</p>`;
+      } else if (type === "noc") {
+        content = `<h2>No Objection Certificate (NOC)</h2>
+          <p>This is to confirm that <strong>${name}</strong> (CNIC: ${cnic}) has no pending dues or issues and may seek opportunities elsewhere. They held the position of <strong>${desig}</strong>.</p>`;
+      }
