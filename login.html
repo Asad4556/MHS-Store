@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MHS Login Panel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h2>🔐 MHS Login Portal</h2>
+    <form action="dashboard.html" method="POST">
+      <label for="cnic">CNIC:</label>
+      <input type="text" id="cnic" name="cnic" placeholder="Enter your CNIC" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required />
+
+      <label for="role">Login As:</label>
+      <select id="role" name="role" required>
+        <option value="superadmin">Super Admin</option>
+        <option value="section">Section Head</option>
+        <option value="worker">Worker</option>
+      </select>
+
+      <button type="submit">Login</button>
+    </form>
+    <p style="text-align:center;">Need help? Contact: 03398067880</p>
+  </div>
+</body>
+</html>
